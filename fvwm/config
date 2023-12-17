@@ -1,0 +1,84 @@
+#
+# environment variables
+#
+SetEnv FVWM_BIN $[FVWM_USERDIR]/bin
+SetEnv FVWM_IMG $[FVWM_USERDIR]/images
+
+#
+# startup functions
+#
+DestroyFunc StartFunction
+AddToFunc   StartFunction
++ I Read binds
++ I Read styles
++ I Read menus
++ I Read panels
+
+# + I Module FvwmCommands
++ I Module FvwmButtons FvwmTaskBar
+
+# desktop buttons
++ I Launcher firefox firefox +40+120 $[FVWM_IMG]/lemon.png
++ I Launcher gimp gimp +40+280 $[FVWM_IMG]/egg.png
+
+# + I Exec picom
++ I Exec killall lemonbar
++ I Exec ~/.config/lemonbar/bar
+
+# + I Exec ~/.fehbg
++ I Exec feh --bg-tile $[FVWM_IMG]/walls/quartz.jpg
+
++ I Exec killall mpd
++ I Exec mpd
+
++ I Exec killall fcitx5
++ I Exec fcitx5
+
+DestroyFunc InitFunction
+AddToFunc   InitFunction
++ I Nop
+
+DestroyFunc RestartFunction
+AddToFunc   RestartFunction
++ I Nop
+
+#
+# virtual desktops
+#
+DesktopSize 4x4
+
+DesktopName 0 1
+DesktopName 1 2
+DesktopName 2 3
+DesktopName 3 4
+
+EdgeScroll 0 0
+EdgeThickness 0
+EdgeResistance 0
+
+# EwmhBaseStruts left right top bottom
+
+#
+# basic functions
+#
+DestroyFunc FocusAndRaise
+AddToFunc   FocusAndRaise
++ I Raise
++ I Focus
+
+DestroyFunc MoveOrRaise
+AddToFunc   MoveOrRaise
++ I Raise
++ M Move
+
+DestroyFunc ResizeOrRaise
+AddToFunc   ResizeOrRaise
++ I Raise
++ M Resize
+
+DestroyFunc AutoPositionize
+AddToFunc   AutoPositionize
++ I Resize $0 $1
++ I Move $2 $3
++ I Raise
+

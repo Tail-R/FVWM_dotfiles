@@ -1,0 +1,126 @@
+#
+# default font
+#
+DefaultFont xft:azukifontB:size=10:weight=bold
+
+#
+# colorsets
+#
+
+# 0 inactive window
+# 1 active window
+# 2 inactive border
+# 3 active border
+
+# 4 menu inactive item
+# 5 menu active item
+# 6 menu greyed item
+# 7 menu title
+
+# 8 module inactive item
+# 9 module active item
+# 10 module plain item
+# 11 module nonplain item
+
+CleanupColorsets
+
+Colorset 0 fg #ffffff, bg #ccb0a0
+Colorset 1 fg #ffffff, bg #b7d7d7
+Colorset 2 fg #ffffff, bg #958689
+Colorset 3 fg #ffffff, bg #958689
+
+Colorset 4 fg #958689, bg #ffffff, hi #958689, sh #958689
+Colorset 5 fg #ffffff, bg #958689, hi #958689, sh #958689
+Colorset 6 fg #ffffff, bg #958689, hi #958689, sh #958689
+Colorset 7 fg #ffffff, bg #958689, hi #958689, sh #958689
+
+Colorset 8 fg #ffffff, bg #ccb0a0
+Colorset 9 fg #ffffff, bg #b7d7d7
+Colorset 10 fg #958689, bg #f8f8f8
+Colorset 11 fg #958689, bg #dddddd
+
+#
+# window decors
+#
+DestroyDecor NormalWindowDecor
+AddToDecor   NormalWindowDecor
++ BorderStyle -- Flat
+
++ TitleStyle CenterJustified
++ TitleStyle Height 74
++ TitleStyle -- Flat
+
++ ButtonStyle 1 \
+        ActiveUp (Pixmap $[FVWM_IMG]/carrot.png) \
+        ActiveDown (Pixmap $[FVWM_IMG]/carrot.png) \
+        Inactive (Pixmap $[FVWM_IMG]/carrot.png)
+
++ ButtonStyle 2 \
+        ActiveUp (Pixmap $[FVWM_IMG]/rabbit.png) \
+        ActiveDown (Pixmap $[FVWM_IMG]/rabbit.png) \
+        Inactive (Pixmap $[FVWM_IMG]/rabbit_dead.png)
+
++ ButtonStyle All -- Flat
+
+#
+# window styles
+#
+Style * Font xft:azukifontB:size=16:weight=bold
+Style * Colorset 0, HilightColorset 1
+Style * BorderColorset 2, HilightBorderColorset 3
+Style * TitleAtBottom
+Style * Handles, HandleWidth 3
+Style * Borders, BorderWidth 3
+Style * SloppyFocus
+Style * MouseFocusClickRaises
+Style * PositionPlacement Center
+Style * NoIcon
+
+Style * UseDecor NormalWindowDecor
+
+#
+# menu styles
+#
+MenuStyle * Font xft:azukifontB:size=14:weight=bold
+
+MenuStyle * PopupOffset 112 0
+MenuStyle * BorderWidth 3
+MenuStyle * VerticalItemSpacing 6 6
+MenuStyle * VerticalTitleSpacing 6 6
+
+MenuStyle * MenuColorset 4, \
+            ActiveColorset 5, \
+            GreyedColorset 6, \
+            TitleColorset 7
+
+MenuStyle * Hilight3DOff, \
+            HilightBack, \
+            HilightTitleBack, \
+            SeparatorsLong, \
+            TrianglesSolid
+
+#
+# panel styles
+#
+
+# lemonbar
+Style Bar !Title, Borders, !Handles
+Style Bar Sticky, NeverFocus
+Style Bar FixedSize, FixedPosition
+Style Bar WindowListSkip
+
+# taskbar
+Style FvwmTaskBar !Title, Borders, Handles
+Style FvwmTaskBar Sticky, !NeverFocus
+Style FvwmTaskBar !FixedSize, !FixedPosition
+Style FvwmTaskBar WindowListSkip
+
+# icons
+Style *Icon !Title, Borders, !Handles
+Style *Icon Sticky, NeverFocus
+Style *Icon FixedSize, FixedPosition
+Style *Icon WindowListSkip
+
+
+
+

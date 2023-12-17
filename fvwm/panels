@@ -1,0 +1,85 @@
+#
+# taskbar
+#
+DestroyModuleConfig FvwmTaskBar: *
+*FvwmTaskBar: Geometry 320x580-46+120
+*FvwmTaskBar: Font xft:azukifontB:size=16:weight=bold
+*FvwmTaskBar: Colorset 10
+*FvwmTaskBar: Rows 580
+*FvwmTaskBar: Columns 1
+*FvwmTaskBar: Frame 0
+
+# title
+*FvwmTaskBar: (1x140, Icon $[FVWM_IMG]/taskbar_top.png)
+
+# task manager
+*FvwmTaskBar: (1x300, Swallow(UseOld, NoClose) TaskButtons \
+                "Module FvwmIconMan TaskButtons")
+
+# end
+*FvwmTaskBar: (1x140, Icon $[FVWM_IMG]/taskbar_bottom.png)
+
+#
+# taskbutton module
+#
+DestroyModuleConfig TaskButtons: *
+*TaskButtons: IconName TaskButtons
+*TaskButtons: UseWinList true
+*TaskButtons: Resolution global
+*TaskButtons: Font xft:azukifontB:size=20:weight=bold
+
+*TaskButtons: ButtonGeometry 1x48
+*TaskButtons: MaxButtonWidth 320
+*TaskButtons: ManagerGeometry 1x1
+
+# taskbutton styles
+*TaskButtons: DrawIcons false
+*TaskButtons: ReliefThickness 0 # border
+*TaskButtons: Format "%c" # %i or %c
+
+*TaskButtons: IconButton up
+*TaskButtons: IconAndSelectButton up
+*TaskButtons: SelectButton up
+
+*TaskButtons: Background #f8f8f8
+*TaskButtons: Foreground #f8f8f8
+
+*TaskButtons: PlainColorset 10
+*TaskButtons: FocusColorset 10
+*TaskButtons: IconColorset 11
+*TaskButtons: SelectColorset 9
+
+*TaskButtons: FocusAndSelectColorset 9
+*TaskButtons: IconAndSelectColorset 9
+
+# taskbutton actions
+*TaskButtons: Action Mouse 1 A sendcommand FocusAndRaise
+*TaskButtons: Action Mouse 2 A sendcommand Nop
+*TaskButtons: Action Mouse 3 A sendcommand Iconify
+
+#
+# desktop icons
+#
+DestroyFunc Launcher
+AddToFunc   Launcher
++ I DestroyModuleConfig $0Icon: *
++ I *$0Icon: Geometry 128x128$2
++ I *$0Icon: Rows 4
++ I *$0Icon: Columns 1
++ I *$0Icon: Frame 0
++ I *$0Icon: Font xft:azukifontB:size=12:weight=bold
++ I *$0Icon: Colorset 10
+
++ I *$0Icon: (1x3, Icon $3, Action (Mouse 1) `Exec $1`)
++ I *$0Icon: Pixmap none
+
++ I *$0Icon: (1x1, Title $0, \
+                Colorset 11, \
+                ActiveColorset 9 \
+                Action (Mouse 1) `Exec $1`)
+
++ I Module FvwmButtons $0Icon
++ I UpdateStyles
+
+
+

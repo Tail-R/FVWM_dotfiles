@@ -1,0 +1,82 @@
+# contexts:
+# A - anywhere
+# R - root window
+# W - application window
+# F - frame corners
+# S - frame sides
+# T - title bar
+# I - icon
+
+# modifiers:
+# A - any
+# C - control
+# S - shift
+# M - meta
+# N - nothing
+
+#
+# keybinds
+#
+# Key (key) (context) (modifier) (action)
+
+# control session
+Key Q A M Close
+Key Q A MS Quit
+Key R A M Restart
+
+# switch current workspace
+Key 1 A M GoToDesk 0 0
+Key 2 A M GoToDesk 0 1
+Key 3 A M GoToDesk 0 2
+Key 4 A M GoToDesk 0 3
+
+# send window to another workspace
+Key 1 A MS MoveToDesk 0 0
+Key 2 A MS MoveToDesk 0 1
+Key 3 A MS MoveToDesk 0 2
+Key 4 A MS MoveToDesk 0 3
+
+# Fn stuff
+Key XF86AudioMute A N Exec pamixer --toggle-mute
+Key XF86AudioLowerVolume A N Exec pamixer --decrease 2
+Key XF86AudioRaiseVolume A N Exec pamixer --increase 2
+
+Key XF86MonBrightnessUp A N Exec brightnessctl s +5%
+Key XF86MonBrightnessDown A N Exec brightnessctl s 5-%
+
+# common apps
+Key Return A M Exec urxvt
+Key Return A MS Exec alacritty
+Key T A M Exec nemo
+
+# scripts
+Key D A M Exec $[FVWM_BIN]/run
+Key W A M Exec $[FVWM_BIN]/wall
+Key S A M Exec $[FVWM_BIN]/ss -f
+Key S A MS Exec $[FVWM_BIN]/ss -s
+
+# misc
+Key X A M Exec xrdb merge ~/.Xresources
+
+#
+# mousebinds
+#
+# Mouse (button) (context) (modifier) (action)
+
+# control window
+Mouse 1 W M MoveOrRaise
+Mouse 1 T N MoveOrRaise
+
+Mouse 1 FS N ResizeOrRaise
+Mouse 1 W MS ResizeOrRaise
+
+# titlebar buttons [1357 title 8642]
+Mouse 1 1 N Close
+Mouse 1 2 N Menu WindowOpsMenu
+
+
+# root window action
+Mouse 1 R N Nop
+Mouse 3 R N Menu RootMenu
+
+

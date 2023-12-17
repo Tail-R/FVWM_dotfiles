@@ -1,0 +1,56 @@
+#
+# root menu
+#
+DestroyMenu RootMenu
+AddToMenu   RootMenu "Root Menu" Title
++ &Terminal Exec urxvt
++ &Internet Exec firefox
++ &Editor Exec geany
++ &Files Exec nemo
++ "" Nop
++ &Scripts Popup Scripts
++ "" Nop
++ &Session Popup Session
+
+DestroyMenu Scripts
+AddToMenu   Scripts
++ &Maim Popup Screenshot
++ "" Nop
++ &RandWall Exec $[FVWM_BIN]/wal
+
+DestroyMenu Screenshot
+AddToMenu Screenshot
++ &Full Exec $[FVWM_BIN]/ss -f
++ &Area Exec $[FVWM_BIN]/ss -s
+
+DestroyMenu Session
+AddToMenu   Session
++ &Fvwm Popup Fvwm
++ "" Nop
++ &Suspend Exec systemctl suspend
++ &Reboot Exec systemctl reboot
++ &Poweroff Exec systemctl poweroff
+
+DestroyMenu Fvwm
+AddToMenu Fvwm
++ &Refresh Refresh
++ &Quit Quit
++ &Restart Restart
+
+
+#
+# window operation menu
+#
+DestroyMenu WindowOpsMenu
+AddToMenu   WindowOpsMenu
++ RightMax AutoPositionize 935p 1000p 15p 40p
++ LeftMax AutoPositionize 935p 1000p -15p 40p
++ "" Nop
++ Move Move
++ Resize Resize
++ Iconify Iconify
++ Maximize Maximize
++ Shade WindowShade
++ Stick Stick
+
+
